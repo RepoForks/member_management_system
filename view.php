@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
     <head>
         <title>Result</title>
@@ -7,24 +10,30 @@
         if(isset($_POST["confirm"])){
         ?>
             <?php
-            print "From ".$_POST["name"];
+            print "From ".$_SESSION["name"];
             print "<br><br>";
             print "Content:<br>";
-            print nl2br($_POST["content"]);
+            print nl2br($_SESSION["content"]);
             ?>
+            <br><br>
+            <a href="index.php">Try Again?</a>
+            <hr>
+            <pre>
+                <?php print_r($_SESSION);?>
+            </pre>
         <?php
         }elseif (isset($_POST["back"])){
         ?>        
             <font size="4">Send Test</font>
             <form name="form1" method="post" action="confirm.php">
                 Name:<br>
-                <input type="text" name="name" value="<?= $_POST["name"] ?>">
+                <input type="text" name="name" value="<?= $_SESSION["name"] ?>">
                 <br>
                 Content:<br>
-                <textarea name="content" cols="30" rows="5"><?= $_POST["content"] ?></textarea>
+                <textarea name="content" cols="30" rows="5"><?= $_SESSION["content"] ?></textarea>
                 <br>
                 <input type="submit" value="send">
-                <input type="hidden" name="user_id" value="<?= $_POST["user_id"] ?>">
+                <input type="hidden" name="user_id" value="<?= $_SESSION["user_id"] ?>">
             </form>
         <?php
         }else{
