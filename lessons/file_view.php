@@ -4,12 +4,11 @@
     </head>
     <body>
         <?php
-        $file_dir = '/home/ubuntu/workspace/images/';
+        $file_dir = '/Applications/XAMPP/xamppfiles/htdocs/member_management_system/image/';
         $file_path = $file_dir.$_FILES["uploadfile"]["name"];
-        
-        if(move_uploaded_file($_FILES["uploadfile"]["name"],$file_path)){
-            $img_dir = "/images/";
-            $img_path = $img_dir.$_FILES["uploadfile"]["tmp_name"];
+        if(move_uploaded_file($_FILES["uploadfile"]["tmp_name"],$file_path)){
+            $img_dir = "./image/";
+            $img_path = $img_dir.$_FILES["uploadfile"]["name"];
             $size = getimagesize($file_path);
         ?>
             uploaded!<br>
@@ -17,7 +16,6 @@
             <b><?=$_POST["comment"]?></b><br>
         <?php
         }else{
-            Error
         ?>
         Error!<br>
         <?php

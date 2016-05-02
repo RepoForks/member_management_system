@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>New</title>
+        <meta http-equiv="Content-type" content="text/html;charset=utf-8">
+    </head>
+    <body bgcolor="#ffffff" text="#000000">
+        <font size="4">New</font>
+
+        <hr size="1" noshade="">
+        新規登録画面
+        <hr size="1" noshade="">
+        [<a href="list.php">戻る</a>]<br>
+        <form name="form1" method="post" action="list.php" enctype="multipart/form-data">
+            <input type="hidden" name="MAX_FILE_SIZE" value="100000">
+            氏:<br>
+            <input type="text" name="last_name">
+            <br>
+            名:<br>
+            <input type="text" name="first_name">
+            <br>
+            年齢:<br>
+            <input type="text" name="age">
+            <br>
+            <input type="hidden" name="action" value="insert">
+            <input type="submit" value="送信">
+        </form>
+    </body>
+</html>

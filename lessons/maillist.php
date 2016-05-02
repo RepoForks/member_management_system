@@ -6,10 +6,10 @@
     <body>
         メール受信：
         <?php
-        $mailserver="pop.mail.yahoo.co.jp";
+        $mailserver="imap.mail.yahoo.co.jp";
         $username="c9_php";
         $password="sakurajima";
-        $mailbox = @imap_open("{".$mailserver.":110/pop3/}INBOX",$username,$password);
+        $mailbox = @imap_open("{".$mailserver.":993/imap/novalidate-cert/ssl}INBOX",$username,$password);
         print "conect";
         if($mailbox){
             $mails = imap_check($mailbox);
