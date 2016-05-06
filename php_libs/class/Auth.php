@@ -54,9 +54,14 @@ class Auth {
 	}
 
 	public function check_password($password, $hashed_password){
-		if(crypt($password, $hashed_passord) == $hashed_password){
+		if(crypt($password, $hashed_password) == $hashed_password){
 			return true;
 		}
+	}
+
+	public function auth_ok($userdata){
+		session_regenerate_id(true);
+		$_SESSION[$this->get_authname()] = $userdata;
 	}
 
 	public function auth_no(){

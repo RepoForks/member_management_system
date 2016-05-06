@@ -7,8 +7,8 @@ define ("_DEBUG_MODE", false);
 ini_set("error_reporting", E_ALL & ~E_STRICT & ~E_DEPRECATED);
 
 /*
-データベース関連
-*/
+ * データベース関連
+ */
 
 define("_DB_USER", "sample");
 
@@ -23,8 +23,8 @@ define("_DB_TYPE", "mysql");
 define("_DSN", _DB_TYPE . ":host=" . _DB_HOST . ";dbname=" . _DB_NAME . ";charset=utf8");
 
 /*
-セッション名
-*/
+ * セッション名
+ */
 
 //会員用セッション名
 define("_MEMBER_SESSNAME", "PHPSESSION_MEMBER");
@@ -39,8 +39,8 @@ define("_MEMBER_AUTHINFO", "serinfo");
 define("_SYSTEM_AUTHINFO", "systeminfo");
 
 /*
-会員・管理者　処理分岐用
-*/
+ * 会員・管理者　処理分岐用
+ */
 
 //会員用フラグ
 define("_MEMBER_FLG", false);
@@ -48,8 +48,8 @@ define("_MEMBER_FLG", false);
 define("_SYSTEM_FLG", true);
 
 /*
-ファイル・ディレクトリ関連
-*/
+ * ファイル・ディレクトリ関連
+ */
 
 //関連ファイルを設置するディレクトリ
 define("_PHP_LIBS_DIR", _ROOT_DIR . "../php_libs");
@@ -61,8 +61,8 @@ define("_CLASS_DIR", _PHP_LIBS_DIR . "class/");
 define("_SCRIPT_NAME", $_SERVER['SCRIPT_NAME']);
 
 /*
-Smarty関連設定
-*/
+ * Smarty関連設定
+ */
 
 // Smartyのlibsディレクトリ
 define("_SMARTY_LIBS_DIR", _PHP_LIBS_DIR . "smarty/libs/");
@@ -80,16 +80,16 @@ define("_SMARTY_CONFIG_DIR", _PHP_LIBS_DIR . "smarty/configs/");
 define("_SMARTY_CACHE_DIR", _PHP_LIBS_DIR . "smarty/cache/");
 
 /*
-ファイル読み込み
-*/
+ * ファイル読み込み
+ */
 
 require_once("HTML/QuickForm.php");
 require_once("HTML/QuickForm/Renderer/ArraySmarty.php");
 require_once(_SMARTY_LIBS_DIR . "Smarty.class.php");
 
 /*
-クラスファイル読み込み
-*/
+ * クラスファイル読み込み
+ */
 
 require_once(_CLASS_DIR . "BaseController.php");
 require_once(_CLASS_DIR . "BaseModel.php");
