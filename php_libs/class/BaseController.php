@@ -58,7 +58,7 @@ class BaseController {
 		$this->form->addElement('text', 'username', 'メール(ユーザ名))', ['size' => 30]);
 		$this->form->addElement('text', 'password', 'パスワード', ['size' => 30]);
 		$this->form->addElement('text', 'last_name', '氏', ['size' => 30]);
-		$this->form->addElement('text', 'first_name', '名', ['size'] => 30);
+		$this->form->addElement('text', 'first_name', '名', ['size' => 30]);
 		$this->form->addElement('date', 'birthday', '誕生日', $options);
 		$this->form->addElement('select', 'prefecture', '県名', $prefecture_array);
 
@@ -82,7 +82,7 @@ class BaseController {
 		if(isset($_GET['pageID']) && $_GET['pageID'] != ""){
 			$add_pageID = '&pageID=' . $_GET['pageID'];
 			$_SESSION['pageID'] = $_GET['pageID'];
-		}else if(isset($_SESSION['pageID'] != "")){
+		}else if(isset($_SESSION['pageID']) && $_SESSION['pageID'] != ""){
 			$add_pageID = '&pageID' . $_SESSION['pageID'];
 		}
 		return $add_pageID;

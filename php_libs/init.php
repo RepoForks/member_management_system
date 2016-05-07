@@ -52,7 +52,7 @@ define("_SYSTEM_FLG", true);
  */
 
 //関連ファイルを設置するディレクトリ
-define("_PHP_LIBS_DIR", _ROOT_DIR . "../php_libs");
+define("_PHP_LIBS_DIR", _ROOT_DIR . "../php_libs/");
 
 //クラスファイル
 define("_CLASS_DIR", _PHP_LIBS_DIR . "class/");
@@ -98,9 +98,9 @@ require_once(_CLASS_DIR . "PrefectureController.php");
 require_once(_CLASS_DIR . "PrefectureModel.php");
 require_once(_CLASS_DIR . "MemberController.php");
 require_once(_CLASS_DIR . "MemberModel.php");
-require_once(_CLASS_DIR . "PrememberCotroller.php");
+require_once(_CLASS_DIR . "PrememberController.php");
 require_once(_CLASS_DIR . "PrememberModel.php");
-require_once(_CLASS_DIR . "SystemCotroller.php");
+require_once(_CLASS_DIR . "SystemController.php");
 require_once(_CLASS_DIR . "SystemModel.php");
 
 ?>

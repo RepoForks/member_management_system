@@ -32,7 +32,7 @@ class MemberController extends BaseController {
 		}
 	}
 
-	public function memnu_guest(){
+	public function menu_guest(){
 		switch($this->type){
 			case "regist":
 				$this->screen_regist();
@@ -219,7 +219,7 @@ class MemberController extends BaseController {
 		$this->view_display();
 	}
 
-	public funciton screen_delete(){
+	public function screen_delete(){
 		$MemberModel = new MemberModel();
 		if($this->action == "confirm"){
 			if($this->is_system){
