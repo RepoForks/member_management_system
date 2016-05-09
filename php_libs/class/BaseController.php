@@ -17,12 +17,16 @@ class BaseController {
 	protected $login_state;
 	protected $debug_str;
 
-	public function __contruct($flag=false){
+	public function __construct($flag=false){
 		$this->set_system($flag);
 		$this->view_initialize();
 	}
 
 	public function set_system($flag){
+		$this->is_system = $flag;
+	}
+
+	public function view_initialize(){
 		$this->view = new Smarty();
 		$this->view->template_dir = _SMARTY_TEMPLATES_DIR;
 		$this->view->compile_dir = _SMARTY_TEMPLATES_C_DIR;
@@ -41,6 +45,22 @@ class BaseController {
 		$this->view->assign('add_pageID', $this->add_pageID());
 	}
 
+	protected function view_display(){
+		$this->debug_display();
+		$this->disp_login_state();
+
+		$this->view->assign('title', $this->title);
+		$this->view->assign('auth_error_mess', $this->auth_error_mess);
+		$this->view->assign('message', $this->message);
+		$this->view->assign('disp_login_state', $this->login_state);
+		$this->view->assign('type', $this->next_type);
+		$this->view->assign('action', $this->next_action);
+		$this->view->assign('debug_str', $this->debug_str);
+		$this->form->accept($this->renderer);
+		$this->view->assign('form', $this->renderer->toArray());
+		$this->view->display($this->file);
+	}
+
 	public function disp_login_state(){
 		if(is_object($this->auth) && $this->auth->check()){
 			$this->login_state = ($this->is_system)? '管理者ログイン中':'会員ログイン中';
@@ -48,7 +68,7 @@ class BaseController {
 	}
 
 	public function make_form_controle(){
-		$PrememberModel = new PrefectureModel;
+		$PrefectureModel = new PrefectureModel;
 		$prefecture_array = $PrefectureModel->get_prefecture_data();
 		$options = [
 			'format' => 'Ymd',

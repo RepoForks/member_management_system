@@ -5,12 +5,12 @@
 	<body>
 		<center>
 			<hr size="1" noshade>
-			<b>{title}</b>
+			<b>{$title}</b>
 			<hr size="1" noshade>
 			<table width="100%" border="0" cellspacing="5" cellpadding="5">
 				<tr>
 					<td width="22%">
-						<form {$form.attibutes}>
+						<form {$form.attributes}>
 							<table border="0" cellpadding="0" cellspacing="0" summary="login form" width="100">
 								<tr>
 									<td colspan="2" bgcolor="#eeeeee">
@@ -18,6 +18,12 @@
 									</td>
 								</tr>
 								<br>
+								<tr>
+									<td nowrap>
+										<font size="2">{$form.username.label}:</font>
+									</td>
+									<td>{$form.username.html}</td>
+								</tr>
 								<tr>
 									<td nowrap>
 										<font size="2">{$form.password.label}:</font>

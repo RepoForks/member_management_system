@@ -1,7 +1,7 @@
 <?php 
 
 //デバッグの表示オフ（false）
-define ("_DEBUG_MODE", false);
+define ("_DEBUG_MODE", true);
 
 //HTML_QuickFormでStricエラーがでるため以下の設定をしよう
 ini_set("error_reporting", E_ALL & ~E_STRICT & ~E_DEPRECATED);

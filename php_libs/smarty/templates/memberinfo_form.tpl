@@ -11,7 +11,7 @@
 				<tr>
 					<td width="22%" align="left" valign="top">
 						[ <a href="{$SCRIPT_NAME}">トップページへ</a> ]
-					{if {$is_system)}
+					{if ($is_system)}
 						<br><br>
 						[ <a href="{$SCRIPT_NAME}?type=list&action=form{$add_pageID}">会員一覧</a> ]
 					{/if}
@@ -41,9 +41,9 @@
 										</font>
 									</td>
 									<td width="79%">
-									{if $font.password.error}
+									{if $form.password.error}
 										<font size="2" color="red">
-											{$font.password.error}
+											{$form.password.error}
 										</font>
 										<br>
 									{/if}
@@ -57,9 +57,9 @@
 										</font>
 									</td>
 									<td width="79%">
-									{if $font.last_name.error}
+									{if $form.last_name.error}
 										<font size="2" color="red">
-											{$font.password.error}
+											{$form.password.error}
 										</font>
 										<br>
 									{/if}
@@ -73,9 +73,9 @@
 										</font>
 									</td>
 									<td width="79%">
-									{if $font.first_name.error}
+									{if $form.first_name.error}
 										<font size="2" color="red">
-											{$font.first_name.error}
+											{$form.first_name.error}
 										</font>
 										<br>
 									{/if}
@@ -89,9 +89,9 @@
 										</font>
 									</td>
 									<td width="79%">
-									{if $font.birthday.error}
+									{if $form.birthday.error}
 										<font size="2" color="red">
-											{$font.birthday.error}
+											{$form.birthday.error}
 										</font>
 										<br>
 									{/if}
@@ -105,9 +105,9 @@
 										</font>
 									</td>
 									<td width="79%">
-									{if $font.password.error}
+									{if $form.password.error}
 										<font size="2" color="red">
-											{$font.prefecture.error}
+											{$form.prefecture.error}
 										</font>
 										<br>
 									{/if}

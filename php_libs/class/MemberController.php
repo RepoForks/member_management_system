@@ -44,7 +44,7 @@ class MemberController extends BaseController {
 				$this->screen_login();
 		}
 	}
-
+	
 	public function screen_login(){
 		$this->form->addElement('text', 'username', 'ユーザ名', ['size' => 15, 'maxlength' => 50]);
 		$this->form->addElement('password', 'password', 'パスワード', ['size' => 15, 'maxlength' => 50]);
@@ -55,10 +55,31 @@ class MemberController extends BaseController {
 		$this->view_display();
 	}
 
+	public function do_authenticate(){
+		$MemberModel = new MemberModel();
+		$userdata = $MemberModel->get_authinfo($_POST['username']);
+		if(!empty($userdata['password']) && $this->auth->check_password($_POST['password'], $userdata['password'])){
+			$this->auth->auth_ok($userdata);
+			$this->screen_top();
+		}else{
+			$this->auth_error_mess = $this->auth->auth_no();
+			$this->screen_login();
+		}
+	}
+
+	public function screen_top(){
+		$this->view->assign('last_name', $_SESSION[_MEMBER_AUTHINFO]['last_name']);
+		$this->view->assign(('first_name'), $_SESSION[_MEMBER_AUTHINFO]['first_name']);
+		$this->title = '会員トップ画面';
+		$this->file = 'member_top.tpl';
+		$this->view_display();
+	}
+
+
 	public function screen_regist($auth = ""){
 		$pos_btn = "";
 		$neg_btn = "";
-		$this->file = "memberinfor_form.tpl";
+		$this->file = "memberinfo_form.tpl";
 
 		$date_defaults = [
 			'Y' => date('Y'),
@@ -70,7 +91,7 @@ class MemberController extends BaseController {
 		$this->make_form_controle();
 
 		if(!$this->form->validate()){
-			$this->action = 'form';
+			$this->action = "form";
 		}
 
 		if($this->action == 'form'){

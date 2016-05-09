@@ -41,7 +41,7 @@ class MemberModel extends BaseModel {
 		$data = [];
 		try {
 			$sql = "SELECT * FROM member WHERE username = :username limit 1";
-			$smth = $this->pdo->prepare($sql);
+			$stmh = $this->pdo->prepare($sql);
 			$stmh->bindValue(':username', $username, PDO::PARAM_STR);
 			$stmh->execute();
 			$data = $stmh->fetch(PDO::FETCH_ASSOC); 
